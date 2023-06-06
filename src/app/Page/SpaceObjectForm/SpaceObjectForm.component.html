@@ -1,0 +1,37 @@
+<div class="card p-3 border-0">
+  <div class="card-body">
+    <h2 class="mb-3">{{isEditMode ? 'Edit Space Object' : 'New Space Object'}}</h2>
+
+    <form [formGroup]="spaceObjectForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input id="name" formControlName="name" placeholder="Enter Space Object Name" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="type">Type:</label>
+        <input id="type" formControlName="type" placeholder="Enter Space Object Type" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="age">Age:</label>
+        <input id="age" formControlName="age" placeholder="Enter Space Object Age" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="diameter">Diameter:</label>
+        <input id="diameter" formControlName="diameter" placeholder="Enter Space Object Diameter" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="mass">Mass:</label>
+        <input id="mass" formControlName="mass" placeholder="Enter Space Object Mass" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="starSystemId">Star System:</label>
+        <select id="starSystemId" formControlName="starSystemId" class="form-control">
+          <option *ngFor="let starSystem of starSystems" [value]="starSystem.id">{{starSystem.name}}</option>
+        </select>
+      </div>
+      <div class="form-group mt-4">
+        <button type="submit" class="btn btn-primary btn-lg btn-block"  [disabled]="spaceObjectForm.invalid">{{isEditMode ? 'Update' : 'Submit'}}</button>
+      </div>
+    </form>
+  </div>
+</div>

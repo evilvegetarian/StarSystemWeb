@@ -1,0 +1,25 @@
+<div class="card p-3 border-0">
+  <div class="card-body">
+    <h2 class="mb-3">{{isEditMode ? 'Edit Star System' : 'New Star System'}}</h2>
+
+    <form [formGroup]="starSystemForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="name">Star System Name</label>
+        <input id="name" formControlName="name" placeholder="Enter Star System Name" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="age">Star System Age</label>
+        <input id="age" formControlName="age" placeholder="Enter Star System Age" class="form-control">
+      </div>
+      <div *ngIf="isEditMode" class="form-group">
+        <label for="massCenterId">Select Mass Center:</label>
+        <select id="massCenterId" formControlName="massCenterId" class="form-control">
+          <option *ngFor="let spaceObject of spaceObjects" [value]="spaceObject.id">{{spaceObject.name}}</option>
+        </select>
+      </div>
+      <div class="form-group mt-4">
+        <button type="submit" class="btn btn-primary btn-lg btn-block" [disabled]="starSystemForm.invalid">{{isEditMode ? 'Update' : 'Submit'}}</button>
+      </div>
+    </form>
+  </div>
+</div>

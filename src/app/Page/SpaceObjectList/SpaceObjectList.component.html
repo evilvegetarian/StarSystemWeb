@@ -1,0 +1,21 @@
+<div class="container mt-5">
+  <h1 class="display-4">Space Objects</h1>
+  
+  <div class="row mt-4">
+    <div *ngFor="let spaceObject of spaceObjects" class="col-lg-4 mb-4">
+      <div class="card h-100">
+        <div class="card-body">
+          <h5 class="card-title">
+            <a routerLink="/spacedetail/{{spaceObject.id}}" class="text-primary">
+              {{ spaceObject.name }}
+            </a>
+          </h5>
+        </div>
+        <div class="card-footer bg-transparent d-flex justify-content-between">
+          <button (click)="deleteSpaceObject(spaceObject.id)" class="btn btn-danger">Delete</button>
+          <a routerLink="/formspace/{{spaceObject.id}}" class="btn btn-primary">Edit</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
