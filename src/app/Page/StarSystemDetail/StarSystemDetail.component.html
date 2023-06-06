@@ -4,7 +4,7 @@
     <p class="lead">Age: {{ starSystem.age }}</p>
     <p *ngIf="starSystem.massCenter">Center of Mass: <a routerLink="/spacedetail/{{starSystem.massCenterId}}" class="text-info">{{ starSystem.massCenter.name }}</a></p>
   </div>
-<a *ngIf="!starSystem.massCenter" routerLink="/formstar/{{starSystem.id}}" class="text-primary">Add mass center</a>
+<a *ngIf="!starSystem.massCenter" routerLink="/formstar/{{starSystem.id}}" class="text-primary">Add Center of Mass</a>
   <div class="row">
     <h2 class="mb-4">Space Objects:</h2>
   
